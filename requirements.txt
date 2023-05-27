@@ -2,3 +2,7 @@ Flask
 gunicorn
 sqlalchemy
 pymysql
+datetime
+flask_login
+werkzeug.security
+datetime
