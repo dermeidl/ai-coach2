@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify
 from sqlalchemy import create_engine, text
-from flask_login import UserMixin
+#from flask_login import UserMixin
 #from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import os
