@@ -11,6 +11,8 @@ SQLAlchemy = "^2.0.15"
 Flask-Migrate = "^4.0.4"
 Flask-SQLAlchemy = "^3.0.3"
 Flask-Login = "^0.6.2"
+oauthlib = "^3.2.2"
+Authlib = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
 

@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, text
 #from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import os
-from database import get_users_from_db
+from database import get_users_from_db, load_user_from_db
 
 
 app = Flask(__name__)
@@ -15,7 +15,10 @@ def home():
   users = get_users_from_db()
   return render_template('home.html', users=users, company_name='NeoClarity')
 
+@app.route("/dashboard/<id>")
+def dashboard(id):
+  user = load_user_from_db(id)
+  return render_template('dashboard.html', user=user)
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)
-

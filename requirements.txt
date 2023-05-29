@@ -3,3 +3,5 @@ gunicorn
 sqlalchemy
 pymysql
 datetime
+flask-login
+Authlib

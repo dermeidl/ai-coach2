@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, text
 import os
 
-engine = create_engine(os.environ['DB_CONN_STRING'], 
+engine = create_engine(os.environ.get('DB_CONN_STRING'), 
     connect_args={
         "ssl": {
             "ssl_ca": "/etc/ssl/cert.pem"
@@ -21,3 +21,13 @@ def get_users_from_db():
         for row in rows:
           users.append(row)
     return users
+
+
+def load_user_from_db(id):
+  with engine.connect() as conn:
+    user = conn.execute(
+      text("SELECT * FROM users WHERE id = :val"),
+       { "val":id }
+    ).all()
+    return user[0]
+  
