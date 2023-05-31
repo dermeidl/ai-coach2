@@ -15,16 +15,7 @@
       <h1 class="text-center mt-4 mb-4">AI-Coach</h1>
       <img height="200" src="/static/banner.jpg">
       </br>
-      <a href="/login" 
-        class="btn btn-secondary btn-sm">Login</a></br>
-      <a href="/signup" 
-        class="btn btn-secondary btn-sm">Sign Up</a></br>
-      <a href="/users" 
-        class="btn btn-secondary btn-sm">Users</a></br>
-      <a href="/upload_file" 
-        class="btn btn-secondary btn-sm">Upload File</a></br>
-      <a href="/download_file" 
-        class="btn btn-secondary btn-sm">Downalod File</a></br>
+      
       
       <h2 class="text-center mt-2 mb-4">About the AI-Coach</h2>
       <h3>The AI-Coach: Personal Development Through Digital Journal Analysis</h3>
@@ -33,14 +24,10 @@
   The AI-Coach operates on the principle of natural language processing (NLP), a branch of artificial intelligence that enables machines to understand, interpret, and generate human language. It uses this technology to read and comprehend the entries in a person's digital journal. The AI-Coach is not just a passive reader, but an active analyzer, extracting insights from the text and providing personalized feedback to the user.</p>
       
       <h2 clss="mt-4 mb-4">Get your own Friend and Mentor from {{company_name}}</h2>
-      <p>Get application From here</P>
-        {% for user in users %}
-          {% include 'users.html' %}
-          </br>
-        {% endfor %}
-      <div>
+      <p>Apply for your personal AI-Coach here:</P>
+        
         <button class="btn btn-primary btn-sm">Submit</button>
-        <p class="mt-4">Copyright 2023, NeoClarity</p>
+        
       </div>
     </div>
   </body>  

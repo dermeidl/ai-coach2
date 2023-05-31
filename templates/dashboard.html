@@ -1,25 +1,50 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    {% block content %}
 
-    {% for message in get_flashed_messages() %}
-         <div class="alert alert-success alert-dismissible fade show" role="alert">
-             {{ message }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    {% endfor %}
+{% extends "base.html" %}
 
-    {% endblock %}    
-  </head>
+{% block content %}
+
+{% for message in get_flashed_messages() %}
+
+     <div class="alert alert-success alert-dismissible fade show" role="alert">
+         {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+{% endfor %}
 
 
 
-  <body>
-    <h2>Dashboard</h2>
-    <br/>
-    <p>{{ user }}</p>
-    <p>{{ user.username }}</p>
-    
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-Coach Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <canvas id="lineChart" width="600" height="400"></canvas>
+  <script>
+    var ctx = document.getElementById("lineChart").getContext("2d");
+    var lineChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: {{ labels | safe }},
+        datasets: [
+          {
+            label: "Data points",
+            data: {{ values | safe }},
+            fill: false,
+            borderColor: "rgb(75, 192, 192)",
+            lineTension: 0.1
+          }
+        ]
+      }, 
+      options: {
+        responsive: false
+      }
+    });
+  </script>
+</body>
 </html>
+
+{% endblock %}

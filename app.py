@@ -31,10 +31,18 @@ def home():
   return render_template('home.html', users=users, company_name='NeoClarity')
 
 
-@app.route("/dashboard/<id>")
-def dashboard(id):
-  user = load_user_from_db(id)
-  return render_template('dashboard.html', user=user)
+@app.route("/dashboard")
+def dashboard():
+  data = [
+    ("01-01-2020", 1597),
+    ("02-01-2020", 1456),
+    ("03-01-2020", 1908),
+    ("04-01-2020", 895),
+    ("05-01-2020", 755)
+  ]
+  labels = [row[0] for row in data]
+  values = [row[1] for row in data]
+  return render_template('dashboard.html', values=values, labels=labels)
 
 
 class UpLoad_Form(FlaskForm):
