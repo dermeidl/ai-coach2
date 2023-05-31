@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 
-
 {% block content %}
 
 {% for message in get_flashed_messages() %}
@@ -13,19 +12,11 @@
 {% endfor %}
 
 
-  <h1>Users:</h1>
+    <h1>File Downalod:</h1>
+    <br/>
 
-  {% for user in users %}
-
-    <div class = "border-bottom border-2 row">
-      <div class="col-sm-9">
-        <strong>Username:</strong> {{user.username}} </br>
-        <strong>Mail:</strong> {{user.email}} </br>
-        <strong>Journal:</strong> {{user.journal}} </br>
-      </div>
-    </div>
-
-  {% endfor %}
+      {{ content }}
 
 
+    <br/><br/>
 {% endblock %}

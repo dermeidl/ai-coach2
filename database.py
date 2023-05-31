@@ -23,11 +23,26 @@ def get_users_from_db():
     return users
 
 
-def load_user_from_db(id):
+def load_user_from_db(username):
   with engine.connect() as conn:
     user = conn.execute(
-      text("SELECT * FROM users WHERE id = :val"),
-       { "val":id }
+      text("SELECT * FROM users WHERE username = :val"),
+       { "val":username }
     ).all()
-    return user[0]
-  
+    if result:  # if the list is not empty
+            return result[0]
+    else:
+        return None
+
+def add_user_to_db(user):
+  with engine.connect() as conn:
+    query = text("INSERT INTO users (username, fname, sname, email, password_hash, journal) VALUES (:username, :fname, :sname, :email, :password_hash, :journal)")
+    
+    conn.execute(query, 
+                 username=user.username, 
+                 fname=user.fname, 
+                 sname=user.sname, 
+                 email=user.email, 
+                 password_hash=user.password_hash, 
+                 jouranl=user.journal)
+    

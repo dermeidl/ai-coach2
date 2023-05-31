@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for message in get_flashed_messages() %}
+
+     <div class="alert alert-success alert-dismissible fade show" role="alert">
+         {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+{% endfor %}
+
+
+    <h1>File Upload</h1>
+    <br/>
+    <br/><br/>
+
+
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+      <form method="POST" enctype="multipart/form-data">
+        <label for="fileupload">Select a file:</label>
+        <input type="file" id="fileupload" name="fileupload" accept=".txt">
+        <input type="submit">
+      </form>
+    </div>
+   <br/><br/>
+    <p></p>
+
+    <br/><br/>
+{% endblock %}
